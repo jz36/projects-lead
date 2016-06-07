@@ -1,0 +1,82 @@
+@import "../../../../assets/css/lsow-lib";
+input.lsow-button, button.lsow-button, a.lsow-button, .lsow-button:active, .lsow-button:visited {
+  display: inline-block;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 16px 40px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: #f94213;
+  color: #fefefe;
+  outline: none;
+  @include vendorize(transition, all 0.4s ease-in-out 0s);
+  span, img.lsow-thumbnail {
+    margin-right: 15px;
+    }
+  span {
+    color: #fff;
+    font-size: 32px;
+    vertical-align: middle;
+    line-height: 1;
+    }
+  img.lsow-thumbnail {
+    display: inline !important;
+    vertical-align: middle;
+    max-width: 50px;
+    }
+  &.lsow-rounded {
+    border-radius: 999px;
+    }
+  &.lsow-large {
+    padding: 20px 60px;
+    }
+  &.lsow-small {
+    padding: 12px 25px;
+    font-size: 11px;
+    }
+  &:hover {
+    background-color: #f9633e;
+    color: #fefefe;
+    }
+  }
+$skin-names: ("black", "blue", "cyan", "green", "orange", "pink", "red", "teal");
+$color-collection: (#363636, #46a5d5, #57c0dc, #00a57d, #e87151, #dd5679, #da4f49, #28c2ba);
+
+@for $i from 0 to length($skin-names) {
+  $skin-name: nth($skin-names, $i+1);
+  $skin-color: nth($color-collection, $i+1);
+  .lsow-button.lsow-#{$skin-name} {
+    background-color: $skin-color;
+    }
+  .lsow-button.lsow-#{$skin-name}:hover {
+    background-color: lighten($skin-color, 5%);
+    }
+  }
+.lsow-button.lsow-trans {
+  color: #333;
+  background-color: transparent; /* IE */
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid #a5a5a5;
+  &:hover {
+    background-color: #fff;
+    color: #333 !important;
+    border-color: #fff;
+    }
+  }
+.lsow-button.lsow-semitrans {
+  color: #fff;
+  background-color: transparent; /* IE */
+  background-color: rgba(125, 125, 125, 0.5);
+  &:hover {
+    background-color: #fff;
+    color: #333 !important;
+    }
+  }
